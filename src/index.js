@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import 'font-awesome/css/font-awesome.min.css';
+import 'bootstrap-css-only/css/bootstrap.min.css';
+import 'mdbreact/dist/css/mdb.css';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from "react-router-dom";
 import {HuntingPage} from "./HuntingPage/HuntingPage";
@@ -16,7 +18,7 @@ const Main = () => (
             <Route path='/Vacation/' component={VacationPage}/>
         </Switch>
     </main>
-)
+);
 
 ReactDOM.render(<BrowserRouter><Main /></BrowserRouter>, document.getElementById('root'));
 // If you want your app to work offline and load faster, you can change
