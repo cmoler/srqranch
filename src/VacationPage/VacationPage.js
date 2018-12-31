@@ -1,15 +1,28 @@
 import React, { Component } from 'react';
 import "./VacationPage.css";
-import { MDBBtn, MDBBtnGroup, MDBDropdown, Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, FormInline, Dropdown, DropdownToggle, DropdownMenu,  DropdownItem, Fa } from "mdbreact";
+import { Container, Button, Modal, ModalBody, ModalHeader, ModalFooter, MDBBtn, MDBBtnGroup, MDBDropdown, Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, FormInline, Dropdown, DropdownToggle, DropdownMenu,  DropdownItem, Fa } from "mdbreact";
 import Gallery from 'react-grid-gallery';
 import { Slide } from 'react-slideshow-image';
+import SimpleMap from "./VacationMapBlock";
 
 export class VacationPage extends Component {
-    state = {
-        isOpen: false
-    };
 
-    toggleCollapse = this.setState({ isOpen: !this.state.isOpen });
+    constructor(props) {
+        super(props);
+        this.state = {
+            isOpen: false,
+            modal1:false,
+            modal2: false,
+            modal3: false
+        }
+    }
+
+    toggle(nr) {
+        let modalNumber = 'modal' + nr
+        this.setState({
+            [modalNumber]: !this.state[modalNumber]
+        });
+    }
 
     render() {
         const IMAGES =
@@ -138,10 +151,41 @@ export class VacationPage extends Component {
                     </Slide>
                 </div>
                 <div className="map">
-
+                    <SimpleMap/>
                 </div>
                 <div className="pictures">
-
+                    <Container>
+                        <Button color="primary" onClick={() => this.toggle(1)} >House</Button>
+                        <Modal isOpen={this.state.modal1} toggle={() => this.toggle(1)} centered>
+                            <ModalHeader toggle={() => this.toggle(1)}>House</ModalHeader>
+                            <ModalBody>
+                                <Gallery images={IMAGES}/>
+                            </ModalBody>
+                            <ModalFooter>
+                                <Button color="secondary" onClick={() => this.toggle(1)}>Close</Button>
+                            </ModalFooter>
+                        </Modal>
+                        <Button color="primary" onClick={() => this.toggle(2)} >Outdoors</Button>
+                        <Modal isOpen={this.state.modal2} toggle={() => this.toggle(2)} centered>
+                            <ModalHeader toggle={() => this.toggle(2)}>Outdoors</ModalHeader>
+                            <ModalBody>
+                                <Gallery images={IMAGES}/>
+                            </ModalBody>
+                            <ModalFooter>
+                                <Button color="secondary" onClick={() => this.toggle(2)}>Close</Button>
+                            </ModalFooter>
+                        </Modal>
+                        <Button color="primary" onClick={() => this.toggle(3)} >Towns</Button>
+                        <Modal isOpen={this.state.modal3} toggle={() => this.toggle(3)} centered>
+                            <ModalHeader toggle={() => this.toggle(3)}>Towns</ModalHeader>
+                            <ModalBody>
+                                <Gallery images={IMAGES}/>
+                            </ModalBody>
+                            <ModalFooter>
+                                <Button color="secondary" onClick={() => this.toggle(3)}>Close</Button>
+                            </ModalFooter>
+                        </Modal>
+                    </Container>
                 </div>
                 <div className="reserve-now">
 
