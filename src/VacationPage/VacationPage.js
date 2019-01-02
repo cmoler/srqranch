@@ -3,7 +3,7 @@ import "./VacationPage.css";
 import { Container, Button, Modal, ModalBody, ModalHeader, ModalFooter, MDBBtn, MDBBtnGroup, MDBDropdown, Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, FormInline, Dropdown, DropdownToggle, DropdownMenu,  DropdownItem, Fa } from "mdbreact";
 import Gallery from 'react-grid-gallery';
 import { Slide } from 'react-slideshow-image';
-import SimpleMap from "./VacationMapBlock";
+import GoogleMapReact from 'google-map-react';
 
 export class VacationPage extends Component {
 
@@ -23,6 +23,14 @@ export class VacationPage extends Component {
             [modalNumber]: !this.state[modalNumber]
         });
     }
+
+    static defaultProps = {
+        center: {
+            lat: 59.95,
+            lng: 30.33
+        },
+        zoom: 11
+    };
 
     render() {
         const IMAGES =
@@ -51,9 +59,9 @@ export class VacationPage extends Component {
                 }];
 
         const slideImages = [
-            'images/slide_2.jpg',
-            'images/slide_3.jpg',
-            'images/slide_4.jpg'
+            'https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg',
+            'https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg',
+            'https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg'
         ];
 
         const properties = {
@@ -114,9 +122,11 @@ export class VacationPage extends Component {
                         </NavbarNav>
                     </Collapse>
                 </Navbar>
-                <div className="Intro">
-                    <h1>SRQ Ranch Vacation Rentals</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                <div className="intro">
+                    <h1 className="title">SRQ Ranch Vacation Rentals</h1>
+                    <div className="mission-statement">
+                    <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                    </div>
                 </div>
                 <div className="contact-reserve-buttons">
                     <MDBBtnGroup>
@@ -129,9 +139,13 @@ export class VacationPage extends Component {
                     </MDBBtnGroup>
                 </div>
                 <div className="nearby">
+                    <div className="nearby-title">
+                        <h1>Nearby</h1>
+                    </div>
                     <Gallery images={IMAGES}/>
                 </div>
                 <div className="house-info">
+                    <h1>House Info</h1>
                     <Slide {...properties}>
                         <div className="each-slide">
                             <div style={{'backgroundImage': `url(${slideImages[0]})`}}>
@@ -151,9 +165,20 @@ export class VacationPage extends Component {
                     </Slide>
                 </div>
                 <div className="map">
-                    <SimpleMap/>
+                    <GoogleMapReact
+                        bootstrapURLKeys={{ key: "" /* YOUR KEY HERE */ }}
+                        defaultCenter={this.props.center}
+                        defaultZoom={this.props.zoom}
+                    >
+                        {/*                    <AnyReactComponent
+                        lat={59.955413}
+                        lng={30.337844}
+                        text={'Kreyser Avrora'}
+                    />*/}
+                        </GoogleMapReact>
                 </div>
                 <div className="pictures">
+                    <h1>Pictures</h1>
                     <Container>
                         <Button color="primary" onClick={() => this.toggle(1)} >House</Button>
                         <Modal isOpen={this.state.modal1} toggle={() => this.toggle(1)} centered>

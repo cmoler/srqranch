@@ -8,14 +8,16 @@ export class LandingPage extends Component {
 
         return(
             <div>
-                <div className="ranch-title">
-                    <h1>SRQ Ranch</h1>
-                </div>
-                <div className="selection-buttons">
-                    <Fragment>
-                        <MDBBtn href="Hunting">Hunting and Fishing</MDBBtn >
-                        <MDBBtn href="Vacation">Vacation Rentals</MDBBtn >
-                    </Fragment>
+                <div className="splash">
+                    <div className="ranch-title">
+                        <h1>SRQ Ranch</h1>
+                    </div>
+                    <div className="selection-buttons">
+                        <Fragment>
+                            <MDBBtn href="Hunting">Hunting and Fishing</MDBBtn >
+                            <MDBBtn href="Vacation">Vacation Rentals</MDBBtn >
+                        </Fragment>
+                    </div>
                 </div>
             </div>
         );

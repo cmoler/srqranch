@@ -1,0 +1,78 @@
+.intro {
+    position: absolute;
+    top: 30vh;
+    left: 30vw;
+}
+
+.title {
+    text-align: center;
+}
+
+.mission-statement {
+    text-align: center;
+    width: 40vw;
+}
+
+.contact-reserve-buttons {
+    position: relative;
+    margin: auto;
+    top: 45vh;
+    width: 17%;
+}
+
+.nearby-title {
+    text-align: center;
+}
+
+.nearby {
+    position: relative;
+    top: 50vh;
+    left: 25vw;
+    width: 50%;
+}
+
+.house-info {
+    position: relative;
+    text-align: center;
+    top: 80vh;
+    left: 0;
+    border: solid 10px red;
+
+
+}
+
+.each-slide {
+    width: 100%;
+    border: solid 10px red;
+
+
+}
+
+.map {
+    position: relative;
+    height: 50vh;
+    width: 100%;
+    top: 150vh;
+    border: solid 10px red;
+
+
+}
+
+.pictures {
+    position: relative;
+    margin: auto;
+    width: 100%;
+    top: 150vh;
+}
+
+.reserve-now {
+    position: relative;
+    margin: auto;
+    top: 170vh;
+}
+
+.contact-us-email {
+    position: relative;
+    margin: auto;
+    top: 200vh;
+}
