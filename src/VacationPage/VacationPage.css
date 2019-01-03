@@ -33,26 +33,15 @@
 
 .house-info {
     position: relative;
-    text-align: center;
-    top: 80vh;
-    left: 0;
+    top: 90vh;
     border: solid 10px red;
-
-
-}
-
-.each-slide {
-    width: 100%;
-    border: solid 10px red;
-
-
 }
 
 .map {
     position: relative;
     height: 50vh;
     width: 100%;
-    top: 150vh;
+    top: 110vh;
     border: solid 10px red;
 
 
