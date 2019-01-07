@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import "./VacationPage.css";
-import { Container, Button, Modal, ModalBody, ModalHeader, ModalFooter, MDBBtn, MDBBtnGroup, MDBDropdown, Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, FormInline, Dropdown, DropdownToggle, DropdownMenu,  DropdownItem, Fa } from "mdbreact";
+import { Container, Button, Modal, ModalBody, ModalHeader, ModalFooter, MDBBtn, MDBBtnGroup, MDBDropdown, MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBInput, MDBIcon, Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, FormInline, Dropdown, DropdownToggle, DropdownMenu,  DropdownItem } from "mdbreact";
 import Gallery from 'react-grid-gallery';
 import { Slide } from 'react-slideshow-image';
 import GoogleMapReact from 'google-map-react';
@@ -15,6 +15,21 @@ export class VacationPage extends Component {
             modal2: false,
             modal3: false
         }
+
+        this.nearbyRef = React.createRef();
+        this.houseInfoRef = React.createRef();
+        this.mapRef = React.createRef();
+        this.picuresRef = React.createRef();
+        this.reserveNowRef = React.createRef();
+        this.contactUsRef = React.createRef();
+
+        this.toggleCollapse = this.toggleCollapse.bind(this);
+    }
+
+    toggleCollapse() {
+        this.setState((state, props) => ({
+            isOpen: !this.state.isOpen
+        }));
     }
 
     toggle(nr) {
@@ -23,6 +38,49 @@ export class VacationPage extends Component {
             [modalNumber]: !this.state[modalNumber]
         });
     }
+
+    scrollToNearbyRef = () => {
+        window.scrollTo({
+            top: this.nearbyRef.current.offsetTop,
+            behavior: "smooth"
+        })
+    }
+
+    scrollToHouseInfoRef= () => {
+        window.scrollTo({
+            top: this.houseInfoRef.current.offsetTop,
+            behavior: "smooth"
+        })
+    }
+
+    scrollToMapRef= () => {
+        window.scrollTo({
+            top: this.mapRef.current.offsetTop,
+            behavior: "smooth"
+        })
+    }
+
+    scrollToPicturesRef= () => {
+        window.scrollTo({
+            top: this.picuresRef.current.offsetTop,
+            behavior: "smooth"
+        })
+    }
+
+    scrollToReserveNowRef= () => {
+        window.scrollTo({
+            top: this.reserveNowRef.current.offsetTop,
+            behavior: "smooth"
+        })
+    }
+
+    scrollToContactUsRef= () => {
+        window.scrollTo({
+            top: this.contactUsRef.current.offsetTop,
+            behavior: "smooth"
+        })
+    }
+
 
     static defaultProps = {
         center: {
@@ -92,21 +150,21 @@ export class VacationPage extends Component {
                     >
                         <NavbarNav left>
                             <NavItem>
-                                <NavLink to="#!">Nearby</NavLink>
+                                <NavLink to="#!" onClick={() => this.scrollToNearbyRef()}>Nearby</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink to="#!">House Info</NavLink>
+                                <NavLink to="#!" onClick={() => this.scrollToHouseInfoRef()}>House Info</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink to="#!">Map</NavLink>
+                                <NavLink to="#!" onClick={() => this.scrollToMapRef()}>Map</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink to="#!">Pictures</NavLink>
+                                <NavLink to="#!" onClick={() => this.scrollToPicturesRef()}>Pictures</NavLink>
                             </NavItem>
                         </NavbarNav>
                         <NavbarNav right>
                             <NavItem>
-                                <NavLink to="#!">Reserve Now</NavLink>
+                                <NavLink to="#!" onClick={() => this.scrollToReserveNowRef()}>Reserve Now</NavLink>
                             </NavItem>
                             <NavItem>
                                 <Dropdown>
@@ -114,7 +172,7 @@ export class VacationPage extends Component {
                                         <div className="contact-us">Contact Us</div>
                                     </DropdownToggle>
                                     <DropdownMenu>
-                                        <DropdownItem href="#!">Email</DropdownItem>
+                                        <DropdownItem href="#!" onClick={() => this.scrollToContactUsRef()}>Email</DropdownItem>
                                         <DropdownItem href="#!">Phone</DropdownItem>
                                     </DropdownMenu>
                                 </Dropdown>
@@ -122,7 +180,8 @@ export class VacationPage extends Component {
                         </NavbarNav>
                     </Collapse>
                 </Navbar>
-                <div className="intro">
+            <MDBContainer>
+            <div className="intro">
                     <h1 className="title">SRQ Ranch Vacation Rentals</h1>
                     <div className="mission-statement">
                     <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
@@ -138,13 +197,13 @@ export class VacationPage extends Component {
                         </MDBBtn>
                     </MDBBtnGroup>
                 </div>
-                <div className="nearby">
+                <div ref={this.nearbyRef} className="nearby">
                     <div className="nearby-title">
                         <h1>Nearby</h1>
                     </div>
                     <Gallery images={IMAGES}/>
                 </div>
-                <div className="house-info">
+                <div ref={this.houseInfoRef} className="house-info">
                     <h1>House Info</h1>
                     <Slide {...properties}>
                         <div className="each-fade">
@@ -167,7 +226,7 @@ export class VacationPage extends Component {
                         </div>
                     </Slide>
                 </div>
-                <div className="map">
+                <div ref={this.mapRef} className="map">
                     <GoogleMapReact
                         bootstrapURLKeys={{ key: "" /* YOUR KEY HERE */ }}
                         defaultCenter={this.props.center}
@@ -180,7 +239,7 @@ export class VacationPage extends Component {
                     />*/}
                         </GoogleMapReact>
                 </div>
-                <div className="pictures">
+                <div ref={this.picuresRef} className="pictures">
                     <h1>Pictures</h1>
                     <Container>
                         <Button color="primary" onClick={() => this.toggle(1)} >House</Button>
@@ -215,12 +274,147 @@ export class VacationPage extends Component {
                         </Modal>
                     </Container>
                 </div>
-                <div className="reserve-now">
-
+                <div ref={this.reserveNowRef} className="reserve-now">
+                    <MDBRow>
+                        <MDBCol>
+                            <MDBCard>
+                                <MDBCardBody>
+                                    <form>
+                                        <p className="h4 text-center py-4">Reserve Now</p>
+                                        <MDBRow>
+                                        <MDBCol>
+                                            <div className="reserve-info">
+                                                <MDBInput
+                                                    label="Your name"
+                                                    icon="user"
+                                                    group
+                                                    type="text"
+                                                    validate
+                                                    error="wrong"
+                                                    success="right"
+                                                        />
+                                                <MDBInput
+                                                    label="Your email"
+                                                    icon="envelope"
+                                                    group
+                                                    type="email"
+                                                    validate
+                                                    error="wrong"
+                                                    success="right"
+                                                        />
+                                                <MDBInput
+                                                    label="Confirm your email"
+                                                    icon="exclamation-triangle"
+                                                    group
+                                                    type="text"
+                                                    validate
+                                                    error="wrong"
+                                                    success="right"
+                                                        />
+                                                </div>
+                                                </MDBCol>
+                                                <MDBCol size="7">
+                                                <div className="reserve-message">
+                                                <MDBInput
+                                                    label="Subject"
+                                                    icon="tag"
+                                                    group
+                                                    type="text"
+                                                    validate
+                                                    error="wrong"
+                                                    success="right"
+                                                        />
+                                                <MDBInput
+                                                    type="textarea"
+                                                    rows="2"
+                                                    label="Your message"
+                                                    icon="pencil"
+                                                        />
+                                                </div>
+                                                </MDBCol>
+                                                </MDBRow>
+                                                <div className="text-center">
+                                                <MDBBtn outline color="secondary">
+                                                Send <MDBIcon icon="paper-plane-o" className="ml-1" />
+                                                </MDBBtn>
+                                            </div>
+                                    </form>
+                                </MDBCardBody>
+                            </MDBCard>
+                        </MDBCol>
+                    </MDBRow>
                 </div>
-                <div className="contact-us-email">
-
+                <div ref={this.contactUsRef} className="contact-us-email">
+                    <MDBRow>
+                        <MDBCol>
+                            <MDBCard>
+                                <MDBCardBody>
+                                    <form>
+                                        <p className="h4 text-center py-4">Contact Us</p>
+                                        <MDBRow>
+                                        <MDBCol>
+                                        <div className="contact-info">
+                                            <MDBInput
+                                                label="Your name"
+                                                icon="user"
+                                                group
+                                                type="text"
+                                                validate
+                                                error="wrong"
+                                                success="right"
+                                                />
+                                            <MDBInput
+                                                label="Your email"
+                                                icon="envelope"
+                                                group
+                                                type="email"
+                                                validate
+                                                error="wrong"
+                                                success="right"
+                                            />
+                                            <MDBInput
+                                                label="Confirm your email"
+                                                icon="exclamation-triangle"
+                                                group
+                                                type="text"
+                                                validate
+                                                error="wrong"
+                                                success="right"
+                                            />
+                                        </div>
+                                        </MDBCol>
+                                        <MDBCol size="7">
+                                        <div className="contact-message">
+                                            <MDBInput
+                                                label="Subject"
+                                                icon="tag"
+                                                group
+                                                type="text"
+                                                validate
+                                                error="wrong"
+                                                success="right"
+                                                />
+                                            <MDBInput
+                                                type="textarea"
+                                                rows="2"
+                                                label="Your message"
+                                                icon="pencil"
+                                                    />
+                                        </div>
+                                        </MDBCol>
+                                        </MDBRow>
+                                        <div className="text-center">
+                                            <MDBBtn outline color="secondary">
+                                                Send <MDBIcon icon="paper-plane-o" className="ml-1" />
+                                            </MDBBtn>
+                                        </div>
+                                    </form>
+                                </MDBCardBody>
+                             </MDBCard>
+                        </MDBCol>
+                    </MDBRow>
                 </div>
+            </MDBContainer>
             </div>
         )
     }

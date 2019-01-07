@@ -1,67 +1,76 @@
 .intro {
-    position: absolute;
-    top: 30vh;
-    left: 30vw;
+    margin: auto;
+    width: 50%;
+    text-align: center;
 }
 
 .title {
-    text-align: center;
+
 }
 
 .mission-statement {
-    text-align: center;
-    width: 40vw;
+
 }
 
 .contact-reserve-buttons {
-    position: relative;
+    text-align: center;
+
+}
+
+.nearby {
     margin: auto;
-    top: 45vh;
-    width: 17%;
+    width: 70%;
+    overflow: auto;
 }
 
 .nearby-title {
     text-align: center;
 }
 
-.nearby {
-    position: relative;
-    top: 50vh;
-    left: 25vw;
-    width: 50%;
-}
-
 .house-info {
-    position: relative;
-    top: 90vh;
-    border: solid 10px red;
+    margin: auto;
+    width: 70%;
+    text-align: center;
+    overflow: auto;
 }
 
 .map {
-    position: relative;
+    margin: auto;
+    width: 70%;
     height: 50vh;
-    width: 100%;
-    top: 110vh;
-    border: solid 10px red;
-
+    text-align: center;
+    overflow: auto;
 
 }
 
 .pictures {
-    position: relative;
     margin: auto;
-    width: 100%;
-    top: 150vh;
+    width: 60%;
+    text-align: center;
 }
 
 .reserve-now {
-    position: relative;
+    width: 70%;
     margin: auto;
-    top: 170vh;
+
+}
+
+.reserve-info {
+
+}
+
+.reserve-message {
+
 }
 
 .contact-us-email {
-    position: relative;
+    width: 70%;
     margin: auto;
-    top: 200vh;
+}
+
+.contact-info {
+
+}
+
+.contact-message {
 }
