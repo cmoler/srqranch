@@ -5,6 +5,8 @@ import Gallery from 'react-grid-gallery';
 import { Slide } from 'react-slideshow-image';
 import GoogleMapReact from 'google-map-react';
 
+import CalendarComponent from "./CalendarComponent";
+
 export class VacationPage extends Component {
 
     constructor(props) {
@@ -315,15 +317,8 @@ export class VacationPage extends Component {
                                                 </MDBCol>
                                                 <MDBCol size="7">
                                                 <div className="reserve-message">
-                                                <MDBInput
-                                                    label="Subject"
-                                                    icon="tag"
-                                                    group
-                                                    type="text"
-                                                    validate
-                                                    error="wrong"
-                                                    success="right"
-                                                        />
+                                                    <CalendarComponent>
+                                                    </CalendarComponent>
                                                 <MDBInput
                                                     type="textarea"
                                                     rows="2"

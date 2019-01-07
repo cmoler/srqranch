@@ -9,6 +9,7 @@
     "react": "^16.7.0",
     "react-bootstrap": "^0.32.4",
     "react-controllables": "^0.6.0",
+    "react-dates": "^18.3.1",
     "react-dom": "^16.7.0",
     "react-grid-gallery": "^0.5.3",
     "react-pure-render": "^1.0.2",
