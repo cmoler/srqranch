@@ -6,16 +6,12 @@ import { forbidExtraProps } from 'airbnb-prop-types';
 import moment from 'moment';
 import omit from 'lodash/omit';
 
-import DayPickerRangeController from 'react-dates';
+import { DayPickerRangeController } from 'react-dates';
 
-import ScrollableOrientationShape from 'react-dates';
+import ScrollableOrientationShape from '../shapes/ScrollableOrientationShape';
 
-import isInclusivelyAfterDay from 'react-dates';
-
-const START_DATE = 'startDate';
-const END_DATE = 'endDate';
-
-const HORIZONTAL_ORIENTATION = 'horizontal';
+import { START_DATE, END_DATE, HORIZONTAL_ORIENTATION } from '../constants';
+import isInclusivelyAfterDay from '../utils/isInclusivelyAfterDay';
 
 const propTypes = forbidExtraProps({
     // example props for the demo
@@ -104,33 +100,33 @@ const defaultProps = {
 };
 
 class CalendarComponent extends React.Component {
-
     constructor(props) {
         super(props);
 
         this.state = {
             focusedInput: props.autoFocusEndDate ? END_DATE : START_DATE,
-            startDate: null,
-            endDate: null
+            startDate: props.initialStartDate,
+            endDate: props.initialEndDate,
         };
 
         this.onDatesChange = this.onDatesChange.bind(this);
         this.onFocusChange = this.onFocusChange.bind(this);
     }
 
-    onDatesChange({startDate, endDate}) {
-        this.setState({startDate, endDate})
+    onDatesChange({ startDate, endDate }) {
+        this.setState({ startDate, endDate });
     }
 
     onFocusChange(focusedInput) {
         this.setState({
+            // Force the focusedInput to always be truthy so that dates are always selectable
             focusedInput: !focusedInput ? START_DATE : focusedInput,
-        })
+        });
     }
 
     render() {
         const { showInputs } = this.props;
-        const{ focusedInput, startDate, endDate } = this.state;
+        const { focusedInput, startDate, endDate } = this.state;
 
         const props = omit(this.props, [
             'autoFocus',
@@ -143,17 +139,18 @@ class CalendarComponent extends React.Component {
         const startDateString = startDate && startDate.format('YYYY-MM-DD');
         const endDateString = endDate && endDate.format('YYYY-MM-DD');
 
-        return(
+        return (
             <div style={{ height: '100%' }}>
                 {showInputs &&
-                    <div style={{ marginBottom: 16 }}>
-                        <input type="text" name="start date" value={startDateString} readOnly />
-                        <input type="text" name="end date" value={endDateString} readOnly />
-                    </div>
+                <div style={{ marginBottom: 16 }}>
+                    <input type="text" name="start date" value={startDateString} readOnly />
+                    <input type="text" name="end date" value={endDateString} readOnly />
+                </div>
                 }
 
                 <DayPickerRangeController
                     {...props}
+                    startDateId="DatePicker"
                     onDatesChange={this.onDatesChange}
                     onFocusChange={this.onFocusChange}
                     focusedInput={focusedInput}

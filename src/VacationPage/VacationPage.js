@@ -1,11 +1,24 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 import "./VacationPage.css";
 import { Container, Button, Modal, ModalBody, ModalHeader, ModalFooter, MDBBtn, MDBBtnGroup, MDBDropdown, MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBInput, MDBIcon, Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, FormInline, Dropdown, DropdownToggle, DropdownMenu,  DropdownItem } from "mdbreact";
 import Gallery from 'react-grid-gallery';
 import { Slide } from 'react-slideshow-image';
 import GoogleMapReact from 'google-map-react';
+import isSameDay from '../utils/isSameDay';
 
 import CalendarComponent from "./CalendarComponent";
+
+const datesList = [
+    moment(),
+    moment().add(1, 'days'),
+    moment().add(3, 'days'),
+    moment().add(9, 'days'),
+    moment().add(10, 'days'),
+    moment().add(11, 'days'),
+    moment().add(12, 'days'),
+    moment().add(13, 'days'),
+];
 
 export class VacationPage extends Component {
 
@@ -16,7 +29,7 @@ export class VacationPage extends Component {
             modal1:false,
             modal2: false,
             modal3: false
-        }
+        };
 
         this.nearbyRef = React.createRef();
         this.houseInfoRef = React.createRef();
@@ -46,42 +59,42 @@ export class VacationPage extends Component {
             top: this.nearbyRef.current.offsetTop,
             behavior: "smooth"
         })
-    }
+    };
 
     scrollToHouseInfoRef= () => {
         window.scrollTo({
             top: this.houseInfoRef.current.offsetTop,
             behavior: "smooth"
         })
-    }
+    };
 
     scrollToMapRef= () => {
         window.scrollTo({
             top: this.mapRef.current.offsetTop,
             behavior: "smooth"
         })
-    }
+    };
 
     scrollToPicturesRef= () => {
         window.scrollTo({
             top: this.picuresRef.current.offsetTop,
             behavior: "smooth"
         })
-    }
+    };
 
     scrollToReserveNowRef= () => {
         window.scrollTo({
             top: this.reserveNowRef.current.offsetTop,
             behavior: "smooth"
         })
-    }
+    };
 
     scrollToContactUsRef= () => {
         window.scrollTo({
             top: this.contactUsRef.current.offsetTop,
             behavior: "smooth"
         })
-    }
+    };
 
 
     static defaultProps = {
@@ -317,8 +330,9 @@ export class VacationPage extends Component {
                                                 </MDBCol>
                                                 <MDBCol size="7">
                                                 <div className="reserve-message">
-                                                    <CalendarComponent>
-                                                    </CalendarComponent>
+                                                    <CalendarComponent
+                                                        isDayBlocked={day1 => datesList.some(day2 => isSameDay(day1, day2))}
+                                                    />
                                                 <MDBInput
                                                     type="textarea"
                                                     rows="2"
