@@ -81,7 +81,7 @@ const defaultProps = {
     verticalHeight: undefined,
     withPortal: false,
     initialVisibleMonth: null,
-    numberOfMonths: 2,
+    numberOfMonths: 1,
     onOutsideClick() {},
     keepOpenOnDateSelect: false,
     renderCalendarInfo: null,
@@ -151,11 +151,11 @@ class CalendarComponent extends React.Component {
                 <DayPickerRangeController
                     {...props}
                     startDateId="DatePicker"
-                    onDatesChange={this.onDatesChange}
+                    onDatesChange={this.props.onDatesChange}
                     onFocusChange={this.onFocusChange}
                     focusedInput={focusedInput}
-                    startDate={startDate}
-                    endDate={endDate}
+                    startDate={this.props.startDate}
+                    endDate={this.props.endDate}
                 />
             </div>
         );
