@@ -1,8 +1,21 @@
 .intro {
-    padding-top: 40vh;
+    position: relative;
+    left: 0;
+    top: 8vh;
+    height: 80vh;
+    width: 100%;
+    background-image: url("../images/SplashScreen/vacationSplash.JPG");
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    background-position: center center;
+
+}
+
+.intro-interact {
+    position: absolute;
     margin: auto;
-    width: 50%;
     text-align: center;
+    padding-top: 40vh;
 }
 
 .title {
@@ -14,14 +27,13 @@
 }
 
 .contact-reserve-buttons {
-    text-align: center;
 
 }
 
 .nearby {
     padding-top: 10vh;
     margin: auto;
-    width: 70%;
+    width: 80%;
     overflow: auto;
 }
 

@@ -1,8 +1,27 @@
+.background {
+    background-image: url("../images/SplashScreen/landingSplash.jpg");
+    height: 100vh;
+    background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center;
+    -moz-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    transform: scaleY(-1);
+    -ms-filter: "FlipV";
+}
+
 .splash {
-    padding: 30vh 0;
+    position: absolute;
+    padding: 70vh 0;
     margin: auto;
     width: 90%;
     text-align: center;
+    -moz-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    transform: scaleY(-1);
+    -ms-filter: "FlipV";
 }
 
 .ranch-title {

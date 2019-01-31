@@ -7,7 +7,7 @@ export class LandingPage extends Component {
     render() {
 
         return(
-            <div>
+            <div className="background">
                 <div className="splash">
                     <div className="ranch-title">
                         <h1>SRQ Ranch</h1>

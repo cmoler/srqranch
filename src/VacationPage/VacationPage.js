@@ -139,20 +139,22 @@ export class VacationPage extends Component {
                 </Navbar>
             <MDBContainer>
             <div className="intro">
-                <h1 className="title">SRQ Ranch Vacation Rentals</h1>
-                <div className="mission-statement">
-                <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                <div className="intro-interact">
+                    <h1 className="title">SRQ Ranch Vacation Rentals</h1>
+                    <div className="mission-statement">
+                        <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                    </div>
+                    <div className="contact-reserve-buttons">
+                        <MDBBtnGroup>
+                            <MDBBtn>
+                                Contact Us
+                            </MDBBtn>
+                            <MDBBtn>
+                                Reserve Now
+                            </MDBBtn>
+                        </MDBBtnGroup>
+                    </div>
                 </div>
-            </div>
-            <div className="contact-reserve-buttons">
-                <MDBBtnGroup>
-                    <MDBBtn>
-                        Contact Us
-                    </MDBBtn>
-                    <MDBBtn>
-                        Reserve Now
-                    </MDBBtn>
-                </MDBBtnGroup>
             </div>
             <div ref={this.nearbyRef} className="nearby">
                 <NearbyVacation/>

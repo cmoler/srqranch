@@ -1,33 +1,69 @@
 import React, { Component } from 'react';
 import Gallery from "react-grid-gallery";
+import IMG_1 from '../images/nearby/IMG_2729.JPG'
+import IMG_2 from '../images/nearby/IMG_2736.JPG'
+import IMG_3 from '../images/nearby/IMG_2782.JPG'
+import IMG_4 from '../images/nearby/IMG_2822.JPG'
+import IMG_5 from '../images/nearby/IMG_2828.JPG'
+import IMG_6 from '../images/nearby/IMG_2841.JPG'
+import IMG_7 from '../images/nearby/IMG_3416.JPG'
 
 export class NearbyVacation extends Component {
 
     render() {
         const IMAGES =
             [{
-                src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
-                thumbnail: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_n.jpg",
+                src: IMG_1,
+                thumbnail: IMG_1,
                 thumbnailWidth: 320,
-                thumbnailHeight: 174,
-                isSelected: true,
+                thumbnailHeight: 212,
                 caption: "After Rain (Jeshu John - designerspics.com)"
             },
             {
-                src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
-                thumbnail: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_n.jpg",
+                src: IMG_2,
+                thumbnail: IMG_2,
                 thumbnailWidth: 320,
                 thumbnailHeight: 212,
-                tags: [{value: "Ocean", title: "Ocean"}, {value: "People", title: "People"}],
-                caption: "Boats (Jeshu John - designerspics.com)"
+                caption: "After Rain (Jeshu John - designerspics.com)"
+            },
+            {
+                src: IMG_3,
+                thumbnail: IMG_3,
+                thumbnailWidth: 320,
+                thumbnailHeight: 212,
+                caption: "After Rain (Jeshu John - designerspics.com)"
+            },
+             {
+                src: IMG_4,
+                thumbnail: IMG_4,
+                thumbnailWidth: 320,
+                thumbnailHeight: 212,
+                caption: "After Rain (Jeshu John - designerspics.com)"
+            },
+             {
+                src: IMG_5,
+                thumbnail: IMG_5,
+                thumbnailWidth: 320,
+                thumbnailHeight: 212,
+                caption: "After Rain (Jeshu John - designerspics.com)"
+            },
+             {
+                src: IMG_6,
+                thumbnail: IMG_6,
+                thumbnailWidth: 320,
+                thumbnailHeight: 212,
+                caption: "After Rain (Jeshu John - designerspics.com)"
+            },
+            {
+                src: IMG_7,
+                thumbnail: IMG_7,
+                thumbnailWidth: 320,
+                thumbnailHeight: 212,
+                caption: "After Rain (Jeshu John - designerspics.com)"
             },
 
-            {
-                src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
-                thumbnail: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_n.jpg",
-                thumbnailWidth: 320,
-                thumbnailHeight: 212
-            }];
+
+            ];
 
         return(
             <div>
